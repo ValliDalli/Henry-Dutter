@@ -18,7 +18,6 @@ while(True):
     for x,y in zip(guess,result):
         
         substring=guess[0:position]
-        #print(f"substring: {substring}, po")
 
         if(y=='w') and (x in substring ):#check edge case
             count_x=substring.count(x)# it shows how often the letter is allowed to appeared in the solution word
@@ -27,22 +26,17 @@ while(True):
             g_position=result[0:position].find('g')
             if(y_position<g_position):
                 y_position=g_position 
-            print("hmm")
             if(x_position==y_position):
                 words=wordle.edge_case(position,x,words,count_x)
-                print("einschlag0")
 
         elif(y=='g'): #Letter was green
             words=wordle.green(position,x,words)
-            print("einschlag1")
             
         elif(y=='y'): #letter was yellow
             words=wordle.yellow(position,x,words)
-            print("einschlag2")
-            
+                      
         elif(y=='w'): #letter was white
             words=wordle.white(x,words)
-            print("einschlag3")
         position+=1
         
         
